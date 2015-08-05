@@ -14,16 +14,18 @@
                 </form>
             {% else %}
 
-                {% if tamagotchi.checkDeath %}
+                {% if tamagotchi[0].checkDeath %}
                     <h2>Sorry Your Tamagotchi is Dead</h2>
-                    <p><a href='/'>Create new Tamagotchi</p>
+                    <form action='/kill_tamagotchi' method='post'>
+                        <button type='submit'>Create New Tamagotchi</button>
+                    </form>
                 {% endif %}
-                
-                <h2>{{ tamagotchi.getName }}</h2>
+
+                <h2>{{ tamagotchi[0].getName }}</h2>
                 <h3>These are it's current Stats</h3>
-                <ul> Food Level: {{ tamagotchi.getFood }}</ul>
-                <ul> Happiness Level: {{ tamagotchi.getPlay }}</ul>
-                <ul>Sleep Level: {{ tamagotchi.getSleep }}</ul>
+                <ul> Food Level: {{ tamagotchi[0].getFood }}</ul>
+                <ul> Happiness Level: {{ tamagotchi[0].getPlay }}</ul>
+                <ul>Sleep Level: {{ tamagotchi[0].getSleep }}</ul>
                 <form action='/feed_tamagotchi' method='post'>
                     <button type='submit'>Feed</button>
                 </form>
@@ -35,6 +37,10 @@
                 </form>
                 <form action='/skip_time' method='post'>
                     <button type='submit'>Skip Time</button>
+                </form>
+
+                <form action='/kill_tamagotchi' method='post'>
+                    <button type='submit'>Set it Free</button>
                 </form>
 
             {% endif %}

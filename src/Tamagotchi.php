@@ -57,7 +57,7 @@
 
         function save()
         {
-            array_push($_SESSION(['state_of_tamagotchi']), $this);
+            array_push($_SESSION['state_of_tamagotchi'], $this);
         }
 
         function checkDeath()
